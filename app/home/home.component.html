@@ -1,0 +1,47 @@
+<ActionBar class="action-bar">
+    <Label class="action-bar-title" text="Set"></Label>
+</ActionBar>
+
+<GridLayout columns="*" rows="100,*,100">
+    <StackLayout col="0" row="0" orientation="horizontal">
+        <!--Button class="btn btn-primary btn-active" id="button" text="start" (tap)="onStartGame($event)"></Button>
+        <Button class="btn btn-primary btn-active" id="button" text="find" (tap)="onFindSet($event)"></Button>
+        <Button class="btn btn-primary btn-active" id="button" text="check" (tap)="isSetOnTable($event)"></Button-->
+        <Image [src]="gameService.players[0].image" height='80%' (tap)="cardSelected(card)"></Image>
+        <StackLayout>
+            <Button class="btn btn-primary btn-active" text="Set" (tap)="pressSet(gameService.players[0])"></Button>
+            <Label [text]="gameService.players[0].name" class='p-l-25'></Label>
+        </StackLayout>
+    </StackLayout>
+
+    <WrapLayout col="0" row="1" class="{{getOnTableClass()}}" orientation="horizontal" backgroundColor="white" class="m-l-10">
+        <ng-template ngFor let-card [ngForOf]="setService.onTable">
+            <Image [src]="card.filename" width="{{widthPercentage()}}" (tap)="cardSelected(card)" [class]="card.getCss()"></Image>
+        </ng-template>
+    </WrapLayout>
+
+    <StackLayout col="0" row="1" class="{{getSetResultClass()}}" visibility="{{ setService.threeCardsSelected() ? 'visible' : 'collapsed' }}">
+        <WrapLayout col="0" row="1" orientation="horizontal" backgroundColor="white" class="m-l-10">
+            <ng-template ngFor let-selectedcard [ngForOf]="setService.setSetSelected">
+                <StackLayout class='m-5'>
+                    <Image [src]="selectedcard.filename" width="30%" [class]="selectedcard.getCss()"></Image>
+                </StackLayout>
+            </ng-template>
+        </WrapLayout>
+        <StackLayout col="0" row="0" orientation="horizontal">
+            <Button class="btn btn-primary btn-active" id="button" text="next" (tap)="onStartGame($event)"></Button>
+        </StackLayout>
+    </StackLayout>
+
+    <StackLayout col="0" row="2" orientation="horizontal">
+        <Image [src]="gameService.players[1].image" height='80%' (tap)="cardSelected(card)"></Image>
+        <StackLayout>
+                <Button class="btn btn-primary btn-active" text="Set" (tap)="pressSet(gameService.players[1])"></Button>
+                <Label [text]="gameService.players[1].name" class='p-l-25'></Label>
+        </StackLayout>
+        <Button class="btn btn-primary btn-active" id="button" text="next" (tap)="nextAfterSet($event)"></Button>
+        <Label [text]="setService.onStaple.length"></Label>
+        <Button class="btn btn-primary btn-active" id="button" text="add" (tap)="addCard($event)"></Button>
+    </StackLayout>
+
+</GridLayout>

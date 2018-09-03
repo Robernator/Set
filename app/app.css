@@ -1,0 +1,67 @@
+/*
+In NativeScript, the app.css file is where you place CSS rules that
+you would like to apply to your entire application. Check out
+http://docs.nativescript.org/ui/styling for a full list of the CSS
+selectors and properties you can use to style UI components.
+
+/*
+In many cases you may want to use the NativeScript core theme instead
+of writing your own CSS rules. For a full list of class names in the theme
+refer to http://docs.nativescript.org/ui/theme.
+*/
+@import '~nativescript-theme-core/css/core.light.css';
+
+/*
+For example, the following CSS rule changes the font size of all UI
+components that have the btn class name.
+*/
+.btn {
+    font-size: 18;
+}
+
+@keyframes spin {
+    from { transform: rotate(0); }
+    to { transform: rotate(360); }
+}
+.image-spin {
+    opacity: 0.25;
+    width: 100px;
+    animation-name: spin; 
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.setResult {
+    opacity:1;  
+    animation-name: resultsPopUp;
+    animation-duration: 0.5;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+}
+@keyframes resultsPopUp {
+    from { transform: translate(-200, 100); }
+    to { transform: translate(2, 100); }
+}
+
+.onTableClass {
+    opacity:0.1; 
+}
+
+.selected-card {
+    border-color: blue;
+    border-width: 15px; 
+}
+
+.set-card {
+    border-color: green;
+    border-width: 15px; 
+}
+
+.not-set-card {
+    border-color: red;
+    border-width: 15px; 
+}
+
+
+
