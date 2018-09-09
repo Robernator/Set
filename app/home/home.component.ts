@@ -80,13 +80,14 @@ export class HomeComponent implements OnInit {
     }
 
     pressSet(selectedPlayer: PlayerModel) {
+        console.log('pressSet');
         if (!selectedPlayer.blocked) {
-            selectedPlayer.pressedSet = true;
+            selectedPlayer.setPressedSet(true);
             // set de rest blocked
             this.gameService.players.forEach(player => {
                 if (selectedPlayer.name != player.name) {
-                    player.pressedSet = false;
-                    player.blocked = true;
+                    player.setPressedSet(false);
+                    player.setBlocked (true);
                 }                
             });
         }
