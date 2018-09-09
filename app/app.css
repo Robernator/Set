@@ -63,5 +63,17 @@ components that have the btn class name.
     border-width: 15px; 
 }
 
+.pressedSet {
+    background-color: green;
+}
+
+.blockedSet {
+    background-color: red;
+}
+
+
+
+
+
 
 

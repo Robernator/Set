@@ -9,7 +9,7 @@
         <Button class="btn btn-primary btn-active" id="button" text="check" (tap)="isSetOnTable($event)"></Button-->
         <Image [src]="gameService.players[0].image" height='80%' (tap)="cardSelected(card)"></Image>
         <StackLayout>
-            <Button class="btn btn-primary btn-active" text="Set" (tap)="pressSet(gameService.players[0])"></Button>
+            <Button class="btn btn-primary btn-active {{gameService.players[0].styleClass}}" text="Set" (tap)="pressSet(gameService.players[0])"></Button>
             <Label [text]="gameService.players[0].name" class='p-l-25'></Label>
         </StackLayout>
     </StackLayout>
@@ -36,8 +36,8 @@
     <StackLayout col="0" row="2" orientation="horizontal">
         <Image [src]="gameService.players[1].image" height='80%' (tap)="cardSelected(card)"></Image>
         <StackLayout>
-                <Button class="btn btn-primary btn-active" text="Set" (tap)="pressSet(gameService.players[1])"></Button>
-                <Label [text]="gameService.players[1].name" class='p-l-25'></Label>
+            <Button class="btn btn-primary btn-active {{gameService.players[1].styleClass}}" text="Set" (tap)="pressSet(gameService.players[1])"></Button>
+            <Label [text]="gameService.players[1].name" class='p-l-25'></Label>
         </StackLayout>
         <Button class="btn btn-primary btn-active" id="button" text="next" (tap)="nextAfterSet($event)"></Button>
         <Label [text]="setService.onStaple.length"></Label>
